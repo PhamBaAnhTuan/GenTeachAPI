@@ -32,14 +32,14 @@ class UserViewSet(viewsets.ModelViewSet):
       
       if serializer.is_valid():
          serializer.save()
-         print(f'Sign up successful! {request.data.get('username')}')
+         print(f"Sign up successful! {request.data.get('username')}")
          
          return Response({
             'message': 'Sign up successful!',
             'data': request.data
          },status=status.HTTP_201_CREATED)
       else:
-         print(f'Sign up error: {serializer.errors}')
+         print(f"Sign up error: {serializer.errors}")
          return Response({
             'error': serializer.errors,
          }, status=status.HTTP_400_BAD_REQUEST)

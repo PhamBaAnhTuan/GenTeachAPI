@@ -30,6 +30,7 @@ SECRET_KEY = 'django-insecure-h835bd1hwm&c0x5j+ni1mjkg96ev!&9r8ddtfa!5d8f%6&l_q4
 DEBUG = True
 
 ALLOWED_HOSTS = [
+    'genteachapi.onrender.com',
     'localhost',
     '127.0.0.1',
     '192.168.93.143',    #phone

@@ -104,8 +104,18 @@ WSGI_APPLICATION = 'GenTeachAPI.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'mssql',
+        'NAME': 'GenTeachDB',         # Database name
+        'USER': 'tuan',              # Database username
+        'PASSWORD': 'tuanpham',          # Database password
+        'HOST': 'INUYASHA\SQLEXPRESS',           # SQL Server host (e.g., localhost or an IP address)
+        'PORT': '',                       # Default SQL Server port
+        'OPTIONS': {
+            'driver': 'ODBC Driver 17 for SQL Server',  # ODBC driver for SQL Server
+            'TrustServerCertificate': 'yes',
+            'Encrypt': 'yes',
+            'MARS_Connection': True,
+        },
     }
 }
 
@@ -134,7 +144,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Ho_Chi_Minh'
 
 USE_I18N = True
 

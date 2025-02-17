@@ -35,6 +35,7 @@ ALLOWED_HOSTS = [
     '127.0.0.1',
     '192.168.93.143',    #phone
     '192.168.1.5',      #home
+    '192.168.31.188',
 ]
 
 
@@ -78,6 +79,12 @@ REST_FRAMEWORK = {
     ),
 }
 
+OAUTH2_PROVIDER = {
+    "ACCESS_TOKEN_EXPIRE_SECONDS": 86400,  # 1 day
+    "REFRESH_TOKEN_EXPIRE_SECONDS": 86400,  # 1 day
+    "ROTATE_REFRESH_TOKEN": True,  # Set True to issue new refresh tokens on use
+}
+
 ROOT_URLCONF = 'GenTeachAPI.urls'
 
 TEMPLATES = [
@@ -105,13 +112,13 @@ WSGI_APPLICATION = 'GenTeachAPI.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'mssql',
-        'NAME': 'GenTeachDB',         # Database name
-        'USER': 'tuan',              # Database username
-        'PASSWORD': 'tuanpham',          # Database password
-        'HOST': 'INUYASHA\SQLEXPRESS',           # SQL Server host (e.g., localhost or an IP address)
-        'PORT': '',                       # Default SQL Server port
+        'NAME': 'GenTeachDB',
+        'USER': os.getenv('USER'),
+        'PASSWORD': os.getenv('PASSWORD'),
+        'HOST': os.getenv('HOST'),
+        'PORT': '',
         'OPTIONS': {
-            'driver': 'ODBC Driver 17 for SQL Server',  # ODBC driver for SQL Server
+            'driver': 'ODBC Driver 17 for SQL Server',
             'TrustServerCertificate': 'yes',
             'Encrypt': 'yes',
             'MARS_Connection': True,

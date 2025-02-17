@@ -5,6 +5,7 @@ from chat.models import Expert
 class CourseSerializer(serializers.ModelSerializer):
    topic_name = serializers.CharField(source='topic.name', read_only=True)
    expert_name = serializers.CharField(source='expert.name', read_only=True)
+   expert_img = serializers.CharField(source='expert.img', read_only=True)
 
    class Meta:
       model = Course

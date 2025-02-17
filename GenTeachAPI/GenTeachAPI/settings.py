@@ -124,6 +124,10 @@ DATABASES = {
             'MARS_Connection': True,
         },
     }
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': BASE_DIR / 'db.sqlite3',
+    # }
 }
 
 

@@ -70,8 +70,8 @@ class UserViewSet(viewsets.ModelViewSet):
                'client_id': CLIENT_ID,
                'client_secret': CLIENT_SECRET,
             }
-            print('id: ', CLIENT_ID, '\n', CLIENT_SECRET)
 
+            print(CLIENT_ID, '\n', CLIENT_SECRET)
             token_view = TokenView.as_view()
             response = token_view(token_request)
             response_content = json.loads(response.content.decode('utf-8'))

@@ -60,6 +60,18 @@ INSTALLED_APPS = [
     'podcast',
 ]
 
+OAUTH2_PROVIDER = {
+    'SCOPES': {
+        'read': 'Read scope', 
+        'write': 'Write scope', 
+        'admin': 'Admin scope',
+    },
+    # 'ACCESS_TOKEN_EXPIRE_SECONDS': 36000,  # Access token expiration time
+    # 'REFRESH_TOKEN_EXPIRE_SECONDS': 1209600,  # Refresh token expiration time
+    'ROTATE_REFRESH_TOKENS': True,  # Rotate refresh tokens on use
+    'APPLICATION_MODEL': 'oauth2_provider.Application',
+}
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -68,6 +80,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    
+    'oauth2_provider.middleware.OAuth2TokenMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 REST_FRAMEWORK = {

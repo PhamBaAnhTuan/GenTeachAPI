@@ -19,6 +19,10 @@ import json
 import os
 from dotenv import load_dotenv
 
+load_dotenv()
+CLIENT_ID = os.getenv('CLIENT_ID')
+CLIENT_SECRET = os.getenv('CLIENT_SECRET')
+
 class UserViewSet(viewsets.ModelViewSet):
    authentication_classes = [OAuth2Authentication]
    permission_classes = [IsAuthenticated]
@@ -49,10 +53,8 @@ class UserViewSet(viewsets.ModelViewSet):
    def signIn(self, request):
       username = request.data.get('username')
       password = request.data.get('password')
-      
-      client_id = os.getenv('CLIENT_ID')
-      client_secret = os.getenv('CLIENT_SECRET')
 
+      
       if username and password:
          user = authenticate(request, username=username, password=password)
          
@@ -65,10 +67,11 @@ class UserViewSet(viewsets.ModelViewSet):
                'grant_type': 'password',
                'username': username,
                'password': password,
-               'client_id': client_id,
-               'client_secret': client_secret,
+               'client_id': CLIENT_ID,
+               'client_secret': CLIENT_SECRET,
             }
-            
+            print('id: ', CLIENT_ID, '\n', CLIENT_SECRET)
+
             token_view = TokenView.as_view()
             response = token_view(token_request)
             response_content = json.loads(response.content.decode('utf-8'))

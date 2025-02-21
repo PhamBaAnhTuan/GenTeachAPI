@@ -131,7 +131,7 @@ DATABASES = {
         'NAME': 'GenTeachDB',
         'USER': os.getenv('USER'),
         'PASSWORD': os.getenv('PASSWORD'),
-        'HOST': 'localhost',
+        'HOST': '127.0.0.1',
         'PORT': '3306',
     }
     # 'default': {

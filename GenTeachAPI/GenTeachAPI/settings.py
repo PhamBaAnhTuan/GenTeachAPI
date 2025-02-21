@@ -126,19 +126,19 @@ WSGI_APPLICATION = 'GenTeachAPI.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'GenTeachDB',
-        'USER': os.getenv('USER'),
-        'PASSWORD': os.getenv('PASSWORD'),
-        'HOST': '127.0.0.1',
-        'PORT': '3306',
-    }
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.mysql',
+    #     'NAME': 'GenTeachDB',
+    #     'USER': os.getenv('USER'),
+    #     'PASSWORD': os.getenv('PASSWORD'),
+    #     'HOST': '127.0.0.1',
+    #     'PORT': '3306',
+    # }
     # 'default': {
     #     'ENGINE': 'django.db.backends.sqlite3',
     #     'NAME': BASE_DIR / 'db.sqlite3',
     # }
-    # 'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
+    'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
 }
 
 

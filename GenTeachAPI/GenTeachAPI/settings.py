@@ -127,18 +127,12 @@ WSGI_APPLICATION = 'GenTeachAPI.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'mssql',
+        'ENGINE': 'django.db.backends.mysql',
         'NAME': 'GenTeachDB',
         'USER': os.getenv('USER'),
         'PASSWORD': os.getenv('PASSWORD'),
-        'HOST': os.getenv('HOST'),
-        'PORT': '',
-        'OPTIONS': {
-            'driver': 'ODBC Driver 17 for SQL Server',
-            'TrustServerCertificate': 'yes',
-            'Encrypt': 'yes',
-            'MARS_Connection': True,
-        },
+        'HOST': 'localhost',
+        'PORT': '3306',
     }
     # 'default': {
     #     'ENGINE': 'django.db.backends.sqlite3',
